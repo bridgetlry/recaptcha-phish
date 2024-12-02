@@ -2,7 +2,6 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 import json
 
 class LoginHandler(SimpleHTTPRequestHandler):
-    stored_username = None
 
     def do_GET(self):
         print(f"Handling GET request for path: {self.path}")
@@ -14,18 +13,9 @@ class LoginHandler(SimpleHTTPRequestHandler):
             return
             
         if '/cy2550-auth/' in self.path and '/auth' in self.path:
-            # Read the password.html template
             try:
                 with open('password.html', 'r', encoding='utf-8') as f:
                     content = f.read()
-                
-                # Replace the display name if we have a stored username
-                if self.stored_username:
-                    # Look for the identity banner section and update the display name
-                    content = content.replace(
-                        'id="displayName" class="identity">', 
-                        f'id="displayName" class="identity">{self.stored_username}'
-                    )
                 
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
@@ -44,7 +34,6 @@ class LoginHandler(SimpleHTTPRequestHandler):
         
         if self.path == '/cy2550-auth/post':
             try:
-                # Read and parse the POST data
                 content_length = int(self.headers['Content-Length'])
                 post_data = self.rfile.read(content_length).decode('utf-8')
                 print(f"Received POST data: {post_data}")

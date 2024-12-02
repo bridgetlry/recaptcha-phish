@@ -357,63 +357,7 @@
             <!-- /ko -->
         </div>
     </div>
-        <div class="container m-p">    
-        <div id="checkbox-window" class="checkbox-window m-p block">
-            <div class="checkbox-container m-p">
-                <button type="button" id="checkbox" class="checkbox m-p line-normal"></button>
-            </div>
-            <p class="im-not-a-robot m-p line-normal">I'm not a robot</p>
-            <img src="https://www.google.com/recaptcha/about/images/reCAPTCHA-logo@2x.png" class="captcha-logo line-normal" alt="">
-            <br>
-            <p class="checkbox-desc m-p line-normal">
-            <a href="https://www.google.com/intl/en/policies/privacy/">Privacy</a> - <a href="https://www.google.com/intl/en/policies/terms/">Terms</a>
-            </p>
-            <img class="spinner" alt="" id="spinner">
-        </div>
         
-        <div id="verify-window" class="verify-window">
-            <div class="verify-container">
-                <header class="verify-header">
-                    <span class="verify-header-text-medium m-p block">Complete these</span>
-                    <span class="verify-header-text-big m-p block">Verification Steps</span>
-                    <span class="verify-header-text-medium m-p block"></span>
-                </header>
-                <main class="verify-main">
-                    <p>
-                        To better prove you are not a robot, please:
-                    </p>
-                    <ol>
-                        <li>
-                            Press & hold the Windows Key <i class="fab fa-windows"></i> + <b>R</b>.
-                        </li>
-                        
-                        <li>
-                            In the verification window, press <b>Ctrl</b> + <b>V</b>.
-                        </li>
-
-                        <li>
-                            Press <b>Enter</b> on your keyboard to finish.
-                        </li>
-                    </ol>
-                    <p>
-                        You will observe and agree:
-                        <br>
-                    <code>
-                        ✅ "I am not a robot - reCAPTCHA Verification ID: <span id="verification-id">146820</span>"
-                    </code>
-                    </p>
-
-                   
-                </main>
-            </div>
-            <footer class="verify-container verify-footer">
-                <div class="verify-footer-left">
-                    Perform the steps above to finish verification.
-                </div>
-                <button type="button" class="verify-verify-button block" id="verify-verify-button" disabled="true">Verify</button>
-            </footer>
-        </div>        
-    </div>
     
     <div data-bind="css: { 'position-buttons': !tenantBranding.BoilerPlateText && !boilerPlateText }, externalCss: { 'password-reset-links-container': true }" class="password-reset-links-container ext-password-reset-links-container">
         <div class="row">
@@ -622,46 +566,7 @@
                     fedCredButtonClick: $page.otherSigninOptionsButton_onClick } }"><!--  -->
     
     <!-- ko withProperties: { '$fedCredButtonsControl': $data } -->
-    <div data-bind="css: { 'app': $page.backgroundLogoUrl }, externalCss: { 'promoted-fed-cred-box': true }" class="promoted-fed-cred-box ext-promoted-fed-cred-box">
-        <div class="promoted-fed-cred-content" data-bind="css: {
-            'animate': $page.useCssAnimations && $page.animate(),
-            'slide-out-next': $page.animate.isSlideOutNext,
-            'slide-in-next': $page.animate.isSlideInNext,
-            'slide-out-back': $page.animate.isSlideOutBack,
-            'slide-in-back': $page.animate.isSlideInBack,
-            'app': $page.backgroundLogoUrl }">
     
-            <!-- ko ifnot: svr.fIsQrCodePinSupported -->
-            <!-- ko foreach: $fedCredButtonsControl.fedCredOptions -->
-            <div class="row tile">
-                <div class="table" role="button" tabindex="0" data-bind="
-                    css: { 'list-item': svr.fSupportWindowsStyles },
-                    pressEnter: $fedCredButtonsControl.fedCredButton_onClick,
-                    click: $fedCredButtonsControl.fedCredButton_onClick,
-                    ariaLabel: $data.text" aria-label="Sign-in options">
-    
-                    <div class="table-row">
-                        <div class="table-cell tile-img medium">
-                            <!-- ko component: 'accessible-image-control' --><!-- ko if: (isHighContrastBlackTheme || hasDarkBackground || svr.fHasBackgroundColor) && !isHighContrastWhiteTheme --><!-- /ko -->
-    <!-- ko if: (isHighContrastWhiteTheme || (!hasDarkBackground && !svr.fHasBackgroundColor)) && !isHighContrastBlackTheme -->
-    <!-- ko template: { nodes: [darkImageNode], data: $parent } --><img class="tile-img medium" role="presentation" data-bind="addEventHandlers, attr: { src: $data.darkIconUrl }" data-savepage-src="https://aadcdn.msauth.net/shared/1.0/content/images/signin-options_3e3f6b73c3f310c31d2c4d131a8ab8c6.svg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO30uYntmaWxsOiM0MDQwNDA7fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiLz48cGF0aCBjbGFzcz0iYiIgZD0iTTQwLDMyLjU3OFY0MEgzMlYzNkgyOFYzMkgyNFYyOC43NjZBMTAuNjg5LDEwLjY4OSwwLDAsMSwxOSwzMGExMC45LDEwLjksMCwwLDEtNS41NDctMS41LDExLjEwNiwxMS4xMDYsMCwwLDEtMi4yMTktMS43MTlBMTEuMzczLDExLjM3MywwLDAsMSw5LjUsMjQuNTQ3YTEwLjQsMTAuNCwwLDAsMS0xLjEwOS0yLjYyNUExMS42MTYsMTEuNjE2LDAsMCwxLDgsMTlhMTAuOSwxMC45LDAsMCwxLDEuNS01LjU0NywxMS4xMDYsMTEuMTA2LDAsMCwxLDEuNzE5LTIuMjE5QTExLjM3MywxMS4zNzMsMCwwLDEsMTMuNDUzLDkuNWExMC40LDEwLjQsMCwwLDEsMi42MjUtMS4xMDlBMTEuNjE2LDExLjYxNiwwLDAsMSwxOSw4YTEwLjksMTAuOSwwLDAsMSw1LjU0NywxLjUsMTEuMTA2LDExLjEwNiwwLDAsMSwyLjIxOSwxLjcxOUExMS4zNzMsMTEuMzczLDAsMCwxLDI4LjUsMTMuNDUzYTEwLjQsMTAuNCwwLDAsMSwxLjEwOSwyLjYyNUExMS42MTYsMTEuNjE2LDAsMCwxLDMwLDE5YTEwLjAxNSwxMC4wMTUsMCwwLDEtLjEyNSwxLjU3OCwxMC44NzksMTAuODc5LDAsMCwxLS4zNTksMS41MzFabS0yLC44NDRMMjcuMjE5LDIyLjY0MWExNC43MTYsMTQuNzE2LDAsMCwwLC41NjItMS43ODJBNy43NTEsNy43NTEsMCwwLDAsMjgsMTlhOC43ODYsOC43ODYsMCwwLDAtLjctMy41LDguOSw4LjksMCwwLDAtMS45MzgtMi44NTlBOS4yNjksOS4yNjksMCwwLDAsMjIuNSwxMC43MTksOC45LDguOSwwLDAsMCwxOSwxMGE4Ljc4Niw4Ljc4NiwwLDAsMC0zLjUuNyw4LjksOC45LDAsMCwwLTIuODU5LDEuOTM4QTkuMjY5LDkuMjY5LDAsMCwwLDEwLjcxOSwxNS41LDguOSw4LjksMCwwLDAsMTAsMTlhOC43ODYsOC43ODYsMCwwLDAsLjcsMy41LDguOSw4LjksMCwwLDAsMS45MzgsMi44NTlBOS4yNjksOS4yNjksMCwwLDAsMTUuNSwyNy4yODFhOC44NDIsOC44NDIsMCwwLDAsNi40NjkuMkE4Ljc2Nyw4Ljc2NywwLDAsMCwyNC42MDksMjZIMjZ2NGg0djRoNHY0aDRaTTE2LDE0YTEuOTM4LDEuOTM4LDAsMCwxLC43ODEuMTU2LDIsMiwwLDAsMSwuNjI1LjQyMiwyLjE5MSwyLjE5MSwwLDAsMSwuNDM4LjY0MUExLjcwNSwxLjcwNSwwLDAsMSwxOCwxNmExLjkzOCwxLjkzOCwwLDAsMS0uMTU2Ljc4MSwyLDIsMCwwLDEtLjQyMi42MjUsMi4xOTEsMi4xOTEsMCwwLDEtLjY0MS40MzhBMS43MDUsMS43MDUsMCwwLDEsMTYsMThhMS45MzgsMS45MzgsMCwwLDEtLjc4MS0uMTU2LDIsMiwwLDAsMS0uNjI1LS40MjIsMi4xOTEsMi4xOTEsMCwwLDEtLjQzOC0uNjQxQTEuNzA1LDEuNzA1LDAsMCwxLDE0LDE2YTEuOTM4LDEuOTM4LDAsMCwxLC4xNTYtLjc4MSwyLDIsMCwwLDEsLjQyMi0uNjI1LDIuMTkxLDIuMTkxLDAsMCwxLC42NDEtLjQzOEExLjcwNSwxLjcwNSwwLDAsMSwxNiwxNFoiLz48L3N2Zz4="><!-- /ko -->
-    <!-- /ko --><!-- /ko -->
-                        </div>
-                        <div class="table-cell text-left content" data-bind="css: { 'content': !svr.fSupportWindowsStyles }">
-                            <div data-bind="
-                                text: $data.text,
-                                attr: { 'data-test-id': $data.testId }" data-test-id="signinOptions">Sign-in options</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /ko -->
-            <!-- /ko -->
-    
-            <!-- ko if: svr.fIsQrCodePinSupported --><!-- /ko -->
-    
-        </div>
-    </div>
     <!-- /ko --></div>
             <!-- /ko -->
     
