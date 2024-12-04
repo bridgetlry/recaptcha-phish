@@ -13,11 +13,13 @@ Once you navigate to this directory, run `python server.py` in the terminal and 
 
 ## Code Details
 
+`index.html` - original page with fake reCAPTCHA, starting point for phishing simulation, this is what was integrated into the Northeastern login page
+
 `server.py` - script that executes the `GET` and `POST` requests to navigate between pages
 
 
-1.  `username.html` - first screen where the user can enter their Northeastern username or email
+1.  `username.html` - first page where the user can enter their Northeastern username or email
 
-2. `password.html` - second screen where the user can enter their password (or navigate to the 'Forgot Password' screen from the oriiginal Northeastern login page) as well as complete the reCAPTCHA
+2. `password.html` - second page where the user can enter their password (or navigate to the 'Forgot Password' screen from the oriiginal Northeastern login page) as well as complete the reCAPTCHA
 
-3. `failed.html` - final screen once the user has verified their identity and completed the reCAPTCHA, shows that they failed the phishing experiment 
+3. `failed.html` - final page once the user has verified their identity and completed the reCAPTCHA, shows that they failed the phishing experiment 
